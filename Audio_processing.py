@@ -1,7 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[2]:
 
 
 import numpy as np
@@ -9,9 +5,6 @@ from scipy.io import wavfile
 import matplotlib.pyplot as plt
 from sympy import *
 from IPython.display import Audio
-
-
-# In[46]:
 
 
 yellow= 'yellow.wav'
@@ -30,13 +23,11 @@ ax.set_ylabel('Amplitude [unknown]');
 f.savefig('Audio.pdf')
 
 
-# In[4]:
 
 
 Audio(yellow)
 
 
-# In[5]:
 
 
 def der(f, n, a, dt):
@@ -54,7 +45,6 @@ for i in range(len(audio)):
         audio_no[i] = audio_no[i]
 
 
-# In[48]:
 
 
 dt = t[1] - t[0]
@@ -66,7 +56,6 @@ plt.plot(t,audio_dt)
 f2.savefig('differntiated_wave.pdf')
 
 
-# In[49]:
 
 
 sigma = 10
@@ -75,21 +64,12 @@ for i in range(len(audio)):
     v[i] = audio_dt[i]/sigma + audio_no[i]
 
 
-# In[ ]:
-
-
-
-
-
-# In[50]:
 
 
 f3 = plt.figure()
 plt.plot(t,v)
 f3.savefig('V.pdf')
 
-
-# In[9]:
 
 
 v_dt = [1e-8]*len(v)
@@ -98,24 +78,15 @@ for i in range(len(v)-1):
 plt.plot(t,v_dt)
 
 
-# In[10]:
-
 
 r = 28
 w = [r/20]*len(audio)
 for i in range(len(audio)):
     w[i] = w[i] - (v[i] +v_dt[i])/20*audio_no[i] + 1e-8
 
-
-# In[51]:
-
-
 f4 = plt.figure()
 plt.plot(t,w)
 f4.savefig('W.pdf')
-
-
-# In[12]:
 
 
 w_dt = [1e-8]*len(w)
@@ -123,61 +94,10 @@ for i in range(len(w)-1):
     w_dt[i] = der(w,len(w),i,dt)
 
 
-# In[13]:
-
-
 plt.plot(t,w_dt)
 
 
-# In[17]:
 
-
-
-
-
-# In[18]:
-
-
-
-
-
-# In[30]:
-
-
-
-
-
-# In[31]:
-
-
-
-
-
-# In[45]:
-
-
-
-
-
-# In[42]:
-
-
-
-
-
-# In[36]:
-
-
-
-
-
-# In[38]:
-
-
-
-
-
-# In[ ]:
 
 
 
